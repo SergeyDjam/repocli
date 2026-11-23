@@ -1,0 +1,38 @@
+[package]
+name = "repocli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.86"
+memmap2 = "0.9"
+clap = { version = "4.5", features = ["derive"] }
+libc = "0.2.155"
+walkdir = "2.5.0"
+fs2 = "0.4.3"
+tempfile = "3.10.1"
+md5 = "0.7.0"
+chrono = "0.4.38"
+flate2 = "1.0.30"
+serde = { version = "1.0.203", features = ["derive"] }
+serde_ini = "0.2.0"
+quick-xml = "0.36.1"
+regex = "1.10.5"
+ctrlc = "3.4.4"
+rpm = "0.25"
+zstd = "0.13"
+rayon = "1.7"
+tokio = { version = "1.0", features = ["rt", "fs", "io-util", "sync", "macros", "rt-multi-thread"] }
+futures = "0.3"
+
+[[bin]]
+name = "rpm_diag"
+path = "tools/rpm_diag.rs"
+
+[[bin]]
+name = "rpm_parse_correct"
+path = "tools/rpm_parse_correct.rs"
+
+[[bin]]
+name = "compare_headers"
+path = "tools/compare_headers.rs"
