@@ -18,7 +18,10 @@ mod tests {
     #[test]
     fn test_help() {
         if !can_execute_target() {
-            eprintln!("skipping --help execution test: cross-compiling {} on {}", TARGET, HOST);
+            eprintln!(
+                "skipping --help execution test: cross-compiling {} on {}",
+                TARGET, HOST
+            );
             return;
         }
         let output = Command::new(REPOCLI).arg("--help").output().unwrap();
