@@ -214,6 +214,14 @@
 - `src/incremental.rs`: `#[allow(clippy::too_many_arguments)]` для `run()`.
 - `src/packdrakeng.rs`, `src/synthesis.rs`: struct literal с `..Default::default()`
   в тестах вместо присваивания полей.
+
+### Fixed — кросс-компиляция (CI riscv64)
+
+- `tests/integration.rs::test_help` падал в CI при `TARGET=riscv64gc` на хосте
+  x86_64: тест пытался запустить кросс-собранный бинарник.
+- Добавлен `build.rs`, экспортирующий `HOST`/`TARGET` в `cargo:rustc-env`;
+  execution-тест пропускается при `HOST != TARGET`. `test_binary_exists`
+  по-прежнему проверяет артефакт на всех целевых платформах.
 - Экстраполяция старого замера на 5000/10000/40000 пакетов: 21,6 / 43,2 /
   172,8 с при 231 пакет/с; цель ТЗ — ≤15 с на 5000 (нужно 333 пакет/с).
 
