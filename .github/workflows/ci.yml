@@ -151,12 +151,12 @@ jobs:
 
           VERSION=$(awk -F'"' '/^version/{print $2; exit}' Cargo.toml)
           ARCH="${{ matrix.arch }}"
-          NAME="appspec-${VERSION}-linux-${ARCH}"
-          BIN="target/${{ matrix.target }}/release/appspec"
+          NAME="repocli-${VERSION}-linux-${ARCH}"
+          BIN="target/${{ matrix.target }}/release/repocli"
 
           if [ ! -f "$BIN" ]; then
             echo "ERROR: binary not found at $BIN" >&2
-            find target -maxdepth 4 -name appspec -type f -exec ls -la {} \; || true
+            find target -maxdepth 4 -name repocli -type f -exec ls -la {} \; || true
             exit 1
           fi
 
@@ -165,7 +165,7 @@ jobs:
           strip "$BIN" 2>/dev/null || true
 
           mkdir -p "dist/${NAME}"
-          cp "$BIN" "dist/${NAME}/appspec"
+          cp "$BIN" "dist/${NAME}/repocli"
           cp README.md "dist/${NAME}/"
           cp -r docs      "dist/${NAME}/"
           cp -r examples  "dist/${NAME}/"
@@ -179,7 +179,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: appspec-${{ matrix.arch }}
+          name: repocli-${{ matrix.arch }}
           path: |
             dist/${{ steps.pack.outputs.name }}.tar.gz
             dist/${{ steps.pack.outputs.name }}.tar.gz.sha256
