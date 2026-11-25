@@ -103,8 +103,14 @@ experimental Go prototype:
 - `urpm-tools-2.3.5`, spec and patch files in the parent directory
 - MDV::Packdrakeng 1.14 container format
 
-See also `TZ_repocli-migration.md`, `CHANGELOG.md`,
-`SUMMARY_genhdlist2-migration.md` and `SUMMARY_repocli-work.md`.
+## Documentation
+
+- [Architecture](docs/architecture.md) / [Архитектура](docs/architecture_ru.md)
+- [On-disk formats](docs/formats.md) / [Форматы файлов](docs/formats_ru.md)
+- [Development guide](docs/development.md) / [Руководство разработчика](docs/development_ru.md)
+- [Operations guide](docs/operations.md) / [Руководство по эксплуатации](docs/operations_ru.md)
+- Project-level: `TZ_repocli-migration.md`, `CHANGELOG.md`,
+  `SUMMARY_genhdlist2-migration.md`, `SUMMARY_repocli-work.md` (parent directory)
 
 ## License
 
