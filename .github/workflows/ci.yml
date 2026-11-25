@@ -168,8 +168,8 @@ jobs:
           cp "$BIN" "dist/${NAME}/repocli"
           cp README.md "dist/${NAME}/"
           cp -r docs      "dist/${NAME}/"
-          cp -r examples  "dist/${NAME}/"
-          cp -r templates "dist/${NAME}/"
+          # cp -r examples  "dist/${NAME}/"
+          # cp -r templates "dist/${NAME}/"
 
           tar -C dist -czf "dist/${NAME}.tar.gz" "${NAME}"
           ( cd dist && sha256sum "${NAME}.tar.gz" > "${NAME}.tar.gz.sha256" )
